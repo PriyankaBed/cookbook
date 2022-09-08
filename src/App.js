@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import About from "./Components/About";
 import { Routes, Route } from 'react-router-dom';
-import RecipesList from './Components/RecipesList';
+import RecipePage from "./Components/RecipePage";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -25,12 +25,10 @@ return (
   <div className='App'>
       <Navbar />
       <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home recipes={recipes}/>} />
           <Route path='/about' element={<About />} />
+        <Route path='/recipes/:id' element={<RecipePage />}/>
       </Routes>
-      <div>
-          <RecipesList recipes={recipes} />
-      </div>
   </div>
 );
 }
